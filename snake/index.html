@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Snake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="bg-gray-200 min-h-screen flex items-center justify-center">
+      <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+        <h1 class="mb-6 text-2xl font-bold text-gray-700">Snake 🐍</h1>
+        <!-- building blocks for the snake game using a canvas elemente -->
+        <div class="mb-4">
+          <canvas id="game" class="border" width="400" height="400"></canvas>
+        </div>
+        <div class="mb-4">
+          <canvas id="score" class="border" width="400" height="100"></canvas>
+        </div>
+      </div>
+    </div>
+    <script src="snake/main.js"></script>
+  </body>
+</html>

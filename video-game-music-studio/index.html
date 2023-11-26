@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Videogame Music Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200 min-h-screen flex items-center justify-center">
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+    <h1 class="mb-6 text-2xl font-bold text-gray-700">Videogame Music studio</h1>
+    <div class="mb-4" id="themes">
+      <span class="block text-gray-700 text-sm font-bold mb-2">Sample Themes</span>
+      <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline text-sm" data-theme="pacman">Theme 1</button>
+      <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline text-sm" data-theme="supermario">Theme 2</button>
+      <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline text-sm" data-theme="tetris">Theme 3</button>
+      <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline text-sm" data-theme="zelda">Theme 4</button>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="music-sheet">Music Sheet</label>
+      <textarea id="music-sheet" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline font-mono" cols="30" rows="10"></textarea>
+    </div>
+    <div class="mb-4">
+      <span class="block text-gray-700 text-sm font-bold mb-2">Instrument</span>
+      <div class="mt-2">
+        <div>
+          <label class="inline-flex items-center">
+            <input type="radio" class="form-radio" name="instrument" value="piano" checked>
+            <span class="ml-2">Piano 🎹</span>
+          </label>
+        </div>
+        <div>
+          <label class="inline-flex items-center">
+            <input type="radio" class="form-radio" name="instrument" value="guitar">
+            <span class="ml-2">Guitar 🎸</span>
+          </label>
+        </div>
+        <div>
+          <label class="inline-flex items-center">
+            <input type="radio" class="form-radio" name="instrument" value="flute">
+            <span class="ml-2">Flute 🪈</span>
+          </label>
+        </div>
+        <div>
+          <label class="inline-flex items-center">
+            <input type="radio" class="form-radio" name="instrument" value="violin">
+            <span class="ml-2">Violin 🎻</span>
+          </label>
+        </div>
+        <div>
+          <label class="inline-flex items-center">
+            <input type="radio" class="form-radio" name="instrument" value="xylophone">
+            <span class="ml-2">Xylophone ʭ</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="attack">Attack</label>
+      <input type="range" id="attack" min="0" max="1" step="0.01" value="0.01" class="appearance-none w-full h-2 rounded-full bg-gray-300 outline-none transition-colors duration-200 ease-in-out">
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="sustain">Sustain</label>
+      <input type="range" id="sustain" min="0" max="1" step="0.01" value="0.5" class="appearance-none w-full h-2 rounded-full bg-gray-300 outline-none transition-colors duration-200 ease-in-out">
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="decay">Decay</label>
+      <input type="range" id="decay" min="0" max="1" step="0.01" value="0.5" class="appearance-none w-full h-2 rounded-full bg-gray-300 outline-none transition-colors duration-200 ease-in-out">
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="release">Release</label>
+      <input type="range" id="release" min="0" max="1" step="0.01" value="0.5" class="appearance-none w-full h-2 rounded-full bg-gray-300 outline-none transition-colors duration-200 ease-in-out">
+    </div>
+    
+    <div class="flex items-center justify-between">
+      <div>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-25" type="button" id="play">
+          Play
+        </button>
+        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" id="stop">
+          Stop
+        </button>
+      </div>
+      <!-- some kind of badge to show the note that is currently playing -->
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2" id="current-note">🎼</span>
+    </div>
+  </div>
+  <script src="video-game-music-studio/main.js"></script>
+</body>
+</html>
