@@ -139,6 +139,13 @@
     B8: 63217.06,
   };
 
+  const themes = {
+    pacman: '- 1/4, C2 1/4, G 1/4, E 1/4, C2 1/8, G 1/8, - 1/4, E 1/2, - 1/4, Db2 1/4, Ab2 1/4, F 1/4, Db2 1/8, Ab2 1/8, - 1/4, F 1/2, - 1/4, C2 1/4, G 1/4, E 1/4, C2 1/8, G 1/8, - 1/4, E 1/2, F# 1/4, G 1/4, G# 1/4, A 1/4, A# 1/4, B 1/4, - 1/4',
+    supermario: 'E 1/8, E 1/8, - 1/8, E 1/8, - 1/8, C 1/8, E 1/8, - 1/8, G 1/4, - 1/4, G 1/8, - 1/8, C 1/8, - 1/8, G 1/4, - 1/4, E 1/8, - 1/8, A 1/8, - 1/8, B 1/8, - 1/8, Bb 1/8, A 1/8, - 1/8, G 1/4, E 1/8, G 1/8, A 1/8, F 1/8, G 1/8, - 1/8, E 1/8, C 1/8, D 1/8, B 1/8, C 1/8, - 1/8, A 1/8, G 1/8, - 1/8, E 1/8, - 1/8, G 1/8, A 1/8, F 1/8, G 1/8, - 1/8, E 1/8, C 1/8, D 1/8, B 1/8, C 1/8, - 1/8, A 1/8, G 1/8, - 1/8',
+    tetris: 'E 1/8, B 1/8, C 1/8, D 1/8, C 1/8, B 1/8, A 1/8, A 1/8, C 1/8, E 1/8, D 1/8, C 1/8, B 1/8, B 1/8, C 1/8, D 1/8, E 1/8, C 1/8, A 1/8, A 1/8, - 1/8, A 1/8, C 1/8, E 1/8, D 1/8, C 1/8, B 1/8, B 1/8, C 1/8, D 1/8, E 1/8, C 1/8, A 1/8, A 1/8, - 1/8',
+    zelda: 'E 1/8, G 1/8, A 1/8, - 1/8, E 1/8, G 1/8, A 1/8, - 1/8, E 1/8, G 1/8, A 1/8, - 1/8, E 1/8, G 1/8, A 1/8, - 1/8, E 1/8, G 1/8, A 1/8, - 1/8, E 1/8, G 1/8, A 1/8, - 1/8, E 1/8, G 1/8, A 1/8, - 1/8, E 1/8, G 1/8, A 1/8, - 1/8',
+  };
+
   // Define a mapping of note lengths to durations.
   const noteLengths = {
     '1': 1.0,
@@ -259,7 +266,10 @@
 
       while (playing) {
         for (let i = 0; i < notes.length; i++) {
-          if (!playing) {
+          if (!playing || notes[i] === '') {
+            playing = false;
+            document.querySelector("#play").disabled = false;
+            document.querySelector("#play").classList.remove('opacity-25');
             break;
           }
           let noteParts = notes[i].split(" ");
@@ -278,5 +288,10 @@
     document.querySelector("#play").disabled = false;
     document.querySelector("#play").classList.remove('opacity-25');
     document.querySelector("#current-note").innerHTML = '🎼';
+  });
+
+  document.querySelector("#themes").addEventListener("click", function (event) {
+    console.log(`Loading theme ${event.target.dataset.theme}.`);
+    document.querySelector("#music-sheet").value = themes[event.target.dataset.theme];
   });
 })();

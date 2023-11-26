@@ -9,9 +9,16 @@
 <body class="bg-gray-200 min-h-screen flex items-center justify-center">
   <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
     <h1 class="mb-6 text-2xl font-bold text-gray-700">Videogame Music studio</h1>
+    <div class="mb-4" id="themes">
+      <span class="block text-gray-700 text-sm font-bold mb-2">Sample Themes</span>
+      <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline text-sm" data-theme="pacman">Theme 1</button>
+      <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline text-sm" data-theme="supermario">Theme 2</button>
+      <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline text-sm" data-theme="tetris">Theme 3</button>
+      <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline text-sm" data-theme="zelda">Theme 4</button>
+    </div>
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="music-sheet">Music Sheet</label>
-      <textarea id="music-sheet" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" cols="30" rows="10"></textarea>
+      <textarea id="music-sheet" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline font-mono" cols="30" rows="10"></textarea>
     </div>
     <div class="mb-4">
       <span class="block text-gray-700 text-sm font-bold mb-2">Instrument</span>
@@ -19,31 +26,31 @@
         <div>
           <label class="inline-flex items-center">
             <input type="radio" class="form-radio" name="instrument" value="piano" checked>
-            <span class="ml-2">Piano</span>
+            <span class="ml-2">Piano 🎹</span>
           </label>
         </div>
         <div>
           <label class="inline-flex items-center">
             <input type="radio" class="form-radio" name="instrument" value="guitar">
-            <span class="ml-2">Guitar</span>
+            <span class="ml-2">Guitar 🎸</span>
           </label>
         </div>
         <div>
           <label class="inline-flex items-center">
             <input type="radio" class="form-radio" name="instrument" value="flute">
-            <span class="ml-2">Flute</span>
+            <span class="ml-2">Flute 🪈</span>
           </label>
         </div>
         <div>
           <label class="inline-flex items-center">
             <input type="radio" class="form-radio" name="instrument" value="violin">
-            <span class="ml-2">Violin</span>
+            <span class="ml-2">Violin 🎻</span>
           </label>
         </div>
         <div>
           <label class="inline-flex items-center">
             <input type="radio" class="form-radio" name="instrument" value="xylophone">
-            <span class="ml-2">Xylophone</span>
+            <span class="ml-2">Xylophone ʭ</span>
           </label>
         </div>
       </div>
