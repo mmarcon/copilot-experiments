@@ -46,10 +46,12 @@ function buildGame() {
     }
     return acc;
   }, []);
+  const UNIQUE_CONSONANTS = 'qjzxvkwfybghmpdclsntr';
   const ALL_VOWELS = "aeiou".split("");
   const HOW_MANY_CONSONANTS = 5;
   const HOW_MANY_VOWELS = 2;
   const MIN_WORD_LENGTH = 4;
+  const HOW_MANY_GAMES = 365;
 
   // Read a file with a dictionary of words
   // Each word is on a new line and I want to read it into an array
@@ -105,7 +107,7 @@ function buildGame() {
   }
 
   const games = [];
-  for (let i = 0; i < 365; i++) {
+  for (let i = 0; i < HOW_MANY_GAMES; i++) {
     let game = dailyGame();
     while (game === false) {
       game = dailyGame();
@@ -113,9 +115,22 @@ function buildGame() {
     games.push(game);
   }
 
-  fs.writeFileSync("games.json", JSON.stringify({
+  // Let's encode `games` in a way that's hard to understand for a human user
+  // but that's easy to parse for a computer
+  // We'll use a simple encoding scheme:
+  // - Each game is a string
+  // - Each letter is a number
+  // - Each letter is separated by a comma
+  // - Each game is separated by a space
+
+  const encodedGames = games.map((game) => {
+    return game.consonants.map(c => UNIQUE_CONSONANTS.indexOf(c) + 53).join('|');
+  });
+
+  fs.writeFileSync("gamese.json", JSON.stringify({
     words,
-    games
+    games: encodedGames,
+    c: UNIQUE_CONSONANTS
   }));
   // console.log(games[0]);
 }

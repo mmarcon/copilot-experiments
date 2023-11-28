@@ -13,13 +13,21 @@
     return selectedVowels;
   }
 
+  function decodeGames(c, encodedGames) {
+    return encodedGames.map((encodedGame) => {
+      return encodedGame.split('|').map((encodedLetter) => {
+        return c[encodedLetter - 53];
+      });
+    });
+  }
+
   // Day of the year
   const day = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
   // Fetch games.json
-  const {games, words} = await fetch('games.json').then((res) => res.json());
+  const {games, words, c} = await fetch('gamese.json').then((res) => res.json());
   window.words = words;
   // Get the game for today
-  const { consonants } = games[day];
+  const consonants = decodeGames(c, games)[day - 1];
   const game = {
     consonants,
     vowels: randomVowels(2),
