@@ -106,7 +106,8 @@
 
   function getNewVowels() {
     if (game.newVowelsCounter >= 2) {
-      console.error('You can only change the vowels twice');
+      alert('You can only change the vowels twice');
+      return;
     }
     const vowelsDiv = document.querySelector('#vowels');
     game.vowels = randomVowels(2);
